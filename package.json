@@ -1,0 +1,29 @@
+{
+  "name": "simple-api-management-nodejs",
+  "version": "0.1.0",
+  "description": "API management platform that helps you rate limit and analyze your APIs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Simple-API-Management/nodejs.git"
+  },
+  "keywords": [
+    "rate limits",
+    "api",
+    "metrics",
+    "monitoring"
+  ],
+  "author": "Simple API Management - Sascha Heyer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Simple-API-Management/nodejs/issues"
+  },
+  "homepage": "https://github.com/Simple-API-Management/nodejs#readme",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "express": "^4.17.1"
+  }
+}
