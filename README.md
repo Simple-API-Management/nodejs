@@ -19,6 +19,8 @@ const simpleAPIManagement = require('simple-api-management-nodejs');
 
 var options = {
   apiKey: 'add your API key here',
+  rateLimits: true, // default
+  metrics: true, // default
   // [OPTIONAL] 
   // identifier can be used to apply rate limits for specific attributes like ip or user
   identifier: function (req, res) { 
