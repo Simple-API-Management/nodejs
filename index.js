@@ -31,8 +31,12 @@ function SimpleAPIManagement(options) {
                     res.status(429).send('Rate limit exceeded')
                 }
                 else {
+                    // track metrics and go to next middleware
                     next()
                 }
+            } else{
+                // track metrics and go to next middleware
+                next()
             }
 
 

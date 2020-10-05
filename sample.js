@@ -3,16 +3,16 @@ const sampleRoute = require("./sampleRoute");
 var express = require('express');
 
 var options = {
-  apiKey: '21CZ9EY-ZX8MZ49-HZ6D96X-A299C73',
+  apiKey: 'GB51HHS-PSGM2VH-NQHEF5C-CVTCGRQ',
   rateLimits: true, // default
   metrics: true, // default
   // identifier can be used to apply rate limits for users 
-  identifier: function (req, res) {
+  /*identifier: function (req, res) {
     if (req.user) {
       return req.user.id;
     }
     return undefined;
-  },
+  },*/
 };
 
 var app = express()
