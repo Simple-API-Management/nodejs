@@ -14,6 +14,8 @@ $ npm install simple-api-management-nodejs
 
 ## Usage
 
+Get your API key from our [_Simple API Management_](https://www.simpleapimanagement.com/) UI. your API key will be displayed after signign up and creating an API.
+
 ```js
 const simpleAPIManagement = require('simple-api-management-nodejs');
 
