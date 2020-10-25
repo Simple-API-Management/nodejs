@@ -46,13 +46,10 @@ function SimpleAPIManagement(options) {
                     let host = req.headers.host || req.hostname;
                     let statusCode = res.statusCode ? res.statusCode : 000;
 
-                    let path = req.route ? req.baseUrl + req.route.path : req.baseUrl
-  
                     instance.post('/metrics', {
                         key: options.apiKey,
                         host: host,
-                        request: req.originalUrl,
-                        path: path,
+                        request: req.path,
                         method: req.method,
                         statusCode: statusCode,
                         latency: responseTime
