@@ -49,7 +49,7 @@ function SimpleAPIManagement(options) {
                     instance.post('/metrics', {
                         key: options.apiKey,
                         host: host,
-                        request: req.path,
+                        request: req.baseUrl + req.path,
                         method: req.method,
                         statusCode: statusCode,
                         latency: responseTime
