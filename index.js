@@ -47,11 +47,11 @@ function SimpleAPIManagement(options) {
                     let statusCode = res.statusCode ? res.statusCode : 000;
 
                     let path = req.route ? req.baseUrl + req.route.path : req.baseUrl
-
+  
                     instance.post('/metrics', {
                         key: options.apiKey,
                         host: host,
-                        originalUrl: req.originalUrl,
+                        request: req.originalUrl,
                         path: path,
                         method: req.method,
                         statusCode: statusCode,
