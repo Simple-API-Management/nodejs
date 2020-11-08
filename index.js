@@ -19,8 +19,24 @@ function SimpleAPIManagement(options) {
         try {
             // log request start time
             req._startTime = Date.now();
+            
+            // log response body
+            res._body = '';
+            const { write, end } = res;
 
+            res.write = (chunk, encoding, cb) => {
+                res._body += chunk;
+                write.call(res, chunk, encoding, cb);
+            };
 
+            res.end = (chunk, encoding, cb) => {
+                if (chunk) {
+                    res._body += chunk;
+                }
+
+                end.call(res, chunk, encoding, cb);
+            };
+            
             // apply rate limit checks if enabled
             if (options.rateLimits) {
                 let response = await instance.post('/ratelimits/validate', {
@@ -44,7 +60,7 @@ function SimpleAPIManagement(options) {
 
 
             // send metrics on finish
-            res.on('finish',function() {
+            res.on('finish', function () {
                 console.log(res._body)
                 if (options.metrics) {
                     let metric = generateMetric(req, res, options)
