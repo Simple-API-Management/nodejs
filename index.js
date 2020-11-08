@@ -61,7 +61,6 @@ function SimpleAPIManagement(options) {
 
             // send metrics on finish
             res.on('finish', function () {
-                console.log(res._body)
                 if (options.metrics) {
                     let metric = generateMetric(req, res, options)
                     instance.post('/metrics', metric)
