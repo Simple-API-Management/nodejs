@@ -1,6 +1,6 @@
 {
   "name": "simpleapimanagement",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "API management platform that helps you rate limit and analyze your APIs.",
   "main": "index.js",
   "scripts": {

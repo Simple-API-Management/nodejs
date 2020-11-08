@@ -23,7 +23,7 @@ module.exports = (res, options = {}) => {
         statusCode: res.statusCode ? res.statusCode : 000,
         statusMessage: res.statusMessage,
         headers: objectToArray(headers),
-        body: JSON.parse(res._body),
+        body: JSON.parse(body),
         bodySize: res.get('content-length') || 0,
         bodyMimeType: res.get('content-type'),
     };
