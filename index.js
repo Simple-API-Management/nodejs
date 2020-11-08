@@ -1,4 +1,5 @@
 const axios = require('axios').default;
+const generateMetric = require('./libs/generateMetric');
 
 const instance = axios.create({
     baseURL: 'https://api.simpleapimanagement.com'
@@ -14,11 +15,13 @@ function SimpleAPIManagement(options) {
         options.metrics = true;
     }
 
-
     async function simpleAPIManagementMiddleware(req, res, next) {
         try {
+            // log request start time
             req._startTime = Date.now();
 
+
+            // apply rate limit checks if enabled
             if (options.rateLimits) {
                 let response = await instance.post('/ratelimits/validate', {
                     path: req.path,
@@ -34,26 +37,18 @@ function SimpleAPIManagement(options) {
                     // track metrics and go to next middleware
                     next()
                 }
-            } else{
+            } else {
                 // track metrics and go to next middleware
                 next()
             }
 
 
-            res.on('finish', function () {
+            // send metrics on finish
+            res.on('finish',function() {
+                console.log(res._body)
                 if (options.metrics) {
-                    let responseTime = new Date() - req._startTime;
-                    let host = req.headers.host || req.hostname;
-                    let statusCode = res.statusCode ? res.statusCode : 000;
-
-                    instance.post('/metrics', {
-                        key: options.apiKey,
-                        host: host,
-                        request: req.baseUrl + req.path,
-                        method: req.method,
-                        statusCode: statusCode,
-                        latency: responseTime
-                    })
+                    let metric = generateMetric(req, res, options)
+                    instance.post('/metrics', metric)
                 }
             })
 

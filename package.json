@@ -1,6 +1,6 @@
 {
-  "name": "simple-api-management-nodejs",
-  "version": "0.6.0",
+  "name": "simpleapimanagement",
+  "version": "0.7.0",
   "description": "API management platform that helps you rate limit and analyze your APIs.",
   "main": "index.js",
   "scripts": {
@@ -23,8 +23,7 @@
   },
   "homepage": "https://github.com/Simple-API-Management/nodejs#readme",
   "dependencies": {
-    "@hapi/hapi": "^20.0.1",
     "axios": "^0.20.0",
-    "express": "^4.17.1"
+    "lodash": "^4.17.20"
   }
 }
