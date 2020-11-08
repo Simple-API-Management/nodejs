@@ -11,13 +11,13 @@ This is a [Node.js](https://nodejs.org/en/) module available through the
 [npm registry](https://www.npmjs.com/).
 
 ```bash
-$ npm install simple-api-management-nodejs
+$ npm install simpleapimanagement
 ```
 
 ## Usage
 
 ```js
-const simpleAPIManagement = require('simple-api-management-nodejs');
+const simpleAPIManagement = require('simpleapimanagement');
 
 var options = {
   apiKey: 'add your API key here',
